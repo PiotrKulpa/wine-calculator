@@ -6,11 +6,14 @@ import { AppComponent } from './app.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { TablesComponent } from './tables/tables.component';
 import { ContactComponent } from './contact/contact.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const appRoutes: Routes = [
   {path: '', component: CalculatorComponent},
   {path: 'tabelki', component: TablesComponent},
-  {path: 'kontakt', component: ContactComponent}
+  {path: 'kontakt', component: ContactComponent},
+  {path: 'not-found', component: NotFoundComponent},
+  {path: '**', redirectTo: '/not-found'}
 ]
 
 @NgModule({
@@ -18,7 +21,8 @@ const appRoutes: Routes = [
     AppComponent,
     CalculatorComponent,
     TablesComponent,
-    ContactComponent
+    ContactComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
