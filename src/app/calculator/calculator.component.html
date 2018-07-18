@@ -22,6 +22,12 @@
           <button type="submit" value="submit">Oblicz</button>
         </fieldset>
       </form>
+      <hr />
+      <p *ngFor="let item of fruit">
+        <span class="heading">
+          {{ item.name }}
+        </span>
+      </p>
     </div>
   </footer>
 </div>
