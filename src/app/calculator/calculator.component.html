@@ -14,20 +14,27 @@
 
     <div class="one_third">
       <h6 class="heading">Obliczanie ilości nastawu</h6>
-      <form method="post" action="#">
+      <form (ngSubmit)="calcIngredients(f)" #f="ngForm">
         <fieldset>
-          <legend>Newsletter:</legend>
-          <input class="btmspace-15" type="text" value="" placeholder="Name">
-          <input class="btmspace-15" type="text" value="" placeholder="Email">
-          <button type="submit" value="submit">Oblicz</button>
+          <label for="fruits">Rodzaj owoców </label>
+          <select (change)="onSelect($event)" ngModel name="fruits" id="fruits" class="btmspace-15" required>>
+            <option *ngFor="let item of fruit, let i = index" [value]="i">{{ item.name }}</option>
+          </select>
+          <input ngModel name="grape" class="btmspace-15" type="number" value="" placeholder="Ilość moszczu w litrach" required>
+          <button [disabled]="!f.valid" type="submit" value="submit">Oblicz</button>
         </fieldset>
       </form>
-      <hr />
-      <p *ngFor="let item of fruit">
-        <span class="heading">
-          {{ item.name }}
-        </span>
+      <p>
+        Woda w litrach:
       </p>
+      <p>
+        Cukier w kg:
+      </p>
+      <p>
+        Nastaw w litrach:
+      </p>
+
+
     </div>
   </footer>
 </div>
