@@ -24,14 +24,15 @@
           <button [disabled]="!f.valid" type="submit" value="submit">Oblicz</button>
         </fieldset>
       </form>
+      <hr />
       <p>
         Woda w litrach:
       </p>
       <p>
-        Cukier w kg:
+        Cukier w kg: {{ addSuggar | currency:'PL' }}
       </p>
       <p>
-        Nastaw w litrach:
+        Nastaw w litrach: {{ wine }}
       </p>
 
 

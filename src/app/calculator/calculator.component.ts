@@ -16,13 +16,17 @@ export class CalculatorComponent implements OnInit {
   id: number;
   acid: number;
   suggar: number;
+  fruitsL: number;
+  wine: number;
+  addSuggar: number;
+  addWater: number;
 
 
   ngOnInit() {
     this.fruit = this.fruitsService.fruits;
   }
 
-  //TODO napisz input select automatycznie, w zaleznosci od wyboru ustaw zawartosc kwasu i cukru w owocach
+
   onSelect(e) {
     this.id = e.target.value;
     this.acid = this.fruit[this.id].acid;
@@ -31,7 +35,16 @@ export class CalculatorComponent implements OnInit {
   }
 
   calcIngredients(form: NgForm) {
-    console.log(form.value)//dostep po nazwie name
+    //nastaw
+    this.wine = (this.acid / 8) * form.value.grape;
+    console.log(this.wine);
+    //cukier dla 10% wina
+    //TODO dodaj listę wyboru z procentem wina (zaimportuj obiekt z serwisu)
+    this.addSuggar = 172 * this.wine - (form.value.grape * this.suggar);
+    console.log(this.addSuggar);
+    //TODO oblicz ilośc wody (172 x nastaw - addSuggar) / 1,6
+    this.addWater = (172 * this.wine - this.addSuggar) / 1,6
+      console.log(this.addWater);
   }
 
 }
