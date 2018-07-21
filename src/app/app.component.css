@@ -277,8 +277,8 @@ File: Layout CSS
 #footer .contact li *{margin:0; padding:0; line-height:1.6;}
 #footer .contact li i{display:block; position:absolute; top:0; left:0; width:30px; font-size:16px; text-align:center;}
 
-#footer input, #footer button{border:1px solid; border-radius:22px;}
-#footer input{display:block; width:100%; padding:8px 15px;}
+#footer input, #footer select, #footer button{border:1px solid; border-radius:22px;}
+#footer input, #footer select{display:block; width:100%; padding:8px 15px;}
 #footer button{padding:8px 18px 10px; text-transform:uppercase; font-weight:700; cursor:pointer;}
 
 
@@ -411,7 +411,7 @@ a{color:#D64E3F;}
 a:active, a:focus{background:transparent;}/* IE10 + 11 Bugfix - prevents grey background */
 hr, .borderedbox{border-color:#D7D7D7;}
 label span{color:#FF0000; background-color:inherit;}
-input:focus, textarea:focus, *:required:focus{border-color:#D64E3F;}
+input:focus, select:focus, textarea:focus, *:required:focus{border-color:#D64E3F;}
 .overlay{color:#FFFFFF; background-color:inherit;}
 .overlay::after{color:inherit; background-color:rgba(0,0,0,.55);}
 
@@ -465,8 +465,8 @@ input:focus, textarea:focus, *:required:focus{border-color:#D64E3F;}
 
 #footer .linklist li{border-color:rgba(255,255,255,.2);}
 
-#footer input, #footer button{border-color:transparent;}
-#footer input{color:#FFFFFF; background-color:#141414;}
+#footer input, #footer select, #footer button{border-color:transparent;}
+#footer input, #footer select{color:#FFFFFF; background-color:#141414;}
 #footer input:focus{border-color:#D64E3F;}
 #footer button{color:#FFFFFF; background-color:#D64E3F;}
 

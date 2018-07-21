@@ -13,17 +13,23 @@ export class CalculatorComponent implements OnInit {
   constructor(private fruitsService: FruitsService) { }
 
   fruit: any = [];
+  alcohol: any = [];
   id: number;
+  idAlk: number;
   acid: number;
   suggar: number;
+  suggarInFruit: number;
   fruitsL: number;
   wine: number;
   addSuggar: number;
+  calculatedWater: number;
   addWater: number;
 
 
   ngOnInit() {
     this.fruit = this.fruitsService.fruits;
+    this.alcohol = this.fruitsService.alcohol;
+    console.log(this.alcohol)
   }
 
 
@@ -34,17 +40,27 @@ export class CalculatorComponent implements OnInit {
     console.log(this.acid, this.suggar)
   }
 
+  onSelectAlk(e) {
+    this.idAlk = e.target.value;
+    this.suggarInFruit = this.alcohol[this.idAlk].suggar;
+    console.log(this.suggarInFruit);
+  }
+
   calcIngredients(form: NgForm) {
     //nastaw
     this.wine = (this.acid / 8) * form.value.grape;
-    console.log(this.wine);
-    //cukier dla 10% wina
+    console.log(`cały nastaw to: ${this.wine}l`);
+
     //TODO dodaj listę wyboru z procentem wina (zaimportuj obiekt z serwisu)
-    this.addSuggar = 172 * this.wine - (form.value.grape * this.suggar);
-    console.log(this.addSuggar);
-    //TODO oblicz ilośc wody (172 x nastaw - addSuggar) / 1,6
-    this.addWater = (172 * this.wine - this.addSuggar) / 1,6
-      console.log(this.addWater);
+
+    this.addSuggar = 206 * this.wine - (form.value.grape * this.suggar);
+    this.addSuggar = this.addSuggar / 1000;
+    console.log(`potrzebny cukier to: ${this.addSuggar}g`);
+
+    this.calculatedWater = this.wine - form.value.grape;
+    console.log(this.calculatedWater)
+    this.addWater = this.calculatedWater - this.addSuggar / 1.6;
+    console.log(`objętośc potrzebnej wody to: ${this.addWater}l`);
   }
 
 }

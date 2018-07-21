@@ -19,4 +19,16 @@ export class FruitsService {
     {id: 13, name: "cherries", acid: 13, suggar: 100},
     {id: 14, name: "grapes", acid: 8, suggar: 155}
   ];
+
+  alcohol = [
+    {id: 1, percent: 10, suggar: 172},
+    {id: 2, percent: 11, suggar: 189},
+    {id: 3, percent: 12, suggar: 206},
+    {id: 4, percent: 13, suggar: 223},
+    {id: 5, percent: 14, suggar: 241},
+    {id: 6, percent: 15, suggar: 258},
+    {id: 7, percent: 16, suggar: 275},
+    {id: 8, percent: 17, suggar: 292},
+    {id: 9, percent: 18, suggar: 309}
+  ];
 }
