@@ -24,7 +24,7 @@
           <select (change)="onSelectAlk($event)" ngModel name="alcohol" id="alcohol" class="btmspace-15" required>>
             <option *ngFor="let item of alcohol, let i = index" [value]="i">{{ item.percent }}</option>
           </select>
-          <input ngModel name="grape" class="btmspace-15" type="number" value="" placeholder="Ilość moszczu w litrach" required>
+          <input ngModel name="grape" class="btmspace-15" type="number" value="" placeholder="Ilość moszczu w litrach" min="1" required>
           <button [disabled]="!f.valid" type="submit" value="submit">Oblicz</button>
         </fieldset>
       </form>
@@ -34,6 +34,9 @@
       </p>
       <p>
         Cukier w kg: {{ addSuggar }}
+      </p>
+      <p>
+        Kwas w g/l: {{ addAcid }}
       </p>
       <p>
         Nastaw w litrach: {{ wine }}
