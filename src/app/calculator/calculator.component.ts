@@ -50,7 +50,7 @@ export class CalculatorComponent implements OnInit {
 
   calcIngredients(form: NgForm) {
     //nastaw
-    if (this.acid >= 8) {
+    if (this.acid > 8) {
       this.addAcid = 0;
       this.wine = (this.acid / 8) * form.value.grape;
       console.log(`cały nastaw to: ${this.wine}l`);
@@ -62,6 +62,17 @@ export class CalculatorComponent implements OnInit {
       this.calculatedWater = this.wine - form.value.grape;
       console.log(this.calculatedWater)
       this.addWater = this.calculatedWater - this.addSuggar / 1.6;
+      console.log(`objętośc potrzebnej wody to: ${this.addWater}l`);
+    } else if (this.acid === 8) {
+      this.addAcid = 0;
+      this.wine = (this.acid / 8) * form.value.grape;
+      console.log(`cały nastaw to: ${this.wine}l`);
+
+      this.addSuggar = this.suggarInFruit * this.wine - (form.value.grape * this.suggar);
+      this.addSuggar = this.addSuggar / 1000;
+      console.log(`potrzebny cukier to: ${this.addSuggar}g`);
+
+      this.addWater = 0;
       console.log(`objętośc potrzebnej wody to: ${this.addWater}l`);
     } else {
       this.addAcid = 8 - this.acid;
