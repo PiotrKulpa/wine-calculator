@@ -1,13 +1,23 @@
 <div class="hoc clear">
   <header id="header" class="hoc clear">
+    <div class="langs">
+      <span (click)="setLang($event)">PL</span> |
+      <span (click)="setLang($event)">EN</span>
+    </div>
     <div id="logo" class="fl_left">
       <h1><a href="https://www.free-css.com/free-css-templates">Kalkulator winiarski</a></h1>
     </div>
-    <nav id="mainav" class="fl_right">
-      <ul class="clear">
+
+    <nav [ngSwitch]="currentLang" id="mainav" class="fl_right">
+      <ul *ngSwitchCase="'PL'" class="clear">
         <li><a routerLink="/">Home</a></li>
         <li><a routerLink="/tabelki">Tabelki</a></li>
         <li><a routerLink="/kontakt">Kontakt</a></li>
+      </ul>
+      <ul *ngSwitchCase="'EN'" class="clear">
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/tabelki">Tables</a></li>
+        <li><a routerLink="/kontakt">Contact</a></li>
       </ul>
     </nav>
   </header>

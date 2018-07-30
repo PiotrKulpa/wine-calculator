@@ -3,6 +3,7 @@
 
     <div class="one_third first">
       <h6 class="heading">Kalkulator</h6>
+      <img src="/assets/wine.svg" alt="wine icon">
     </div>
 
     <div class="one_third">
@@ -24,22 +25,23 @@
           <select (change)="onSelectAlk($event)" ngModel name="alcohol" id="alcohol" class="btmspace-15" required>>
             <option *ngFor="let item of alcohol, let i = index" [value]="i">{{ item.percent }}</option>
           </select>
-          <input ngModel name="grape" class="btmspace-15" type="number" value="" placeholder="Ilość moszczu w litrach" min="1" required>
+          <label for="grape">Ilość moszczu w litrach :</label>
+          <input ngModel name="grape" id="grape" class="btmspace-15" type="number" value="" placeholder="Ilość moszczu w litrach" min="1" required>
           <button [disabled]="!f.valid" type="submit" value="submit">Oblicz</button>
         </fieldset>
       </form>
       <hr />
       <p>
-        Woda w litrach: {{ addWater }}
+        Woda w litrach: {{ addWater | number:'1.0-2'}}
       </p>
       <p>
-        Cukier w kg: {{ addSuggar }}
+        Cukier w kg: {{ addSuggar | number:'1.0-2' }}
       </p>
       <p>
-        Kwas w g/l: {{ addAcid }}
+        Kwas w g/l: {{ addAcid | number:'1.0-2' }}
       </p>
       <p>
-        Nastaw w litrach: {{ wine }}
+        Nastaw w litrach: {{ wine | number:'1.0-2' }}
       </p>
 
 
