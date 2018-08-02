@@ -2,6 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router'
 import { FormsModule } from '@angular/forms'
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/pl';
+
+registerLocaleData(localeFr, 'pl');
+import { FormatNumberPipe } from './format-number.pipe'
 
 import { AppComponent } from './app.component';
 import { CalculatorComponent } from './calculator/calculator.component';
@@ -23,7 +28,8 @@ const appRoutes: Routes = [
     CalculatorComponent,
     TablesComponent,
     ContactComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    FormatNumberPipe
   ],
   imports: [
     BrowserModule,
