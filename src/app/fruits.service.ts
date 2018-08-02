@@ -16,6 +16,7 @@ export class FruitsService {
     {id: 10, name: "białe pożeczki/white currants", acid: 24, suggar: 70},
     {id: 11, name: "czerwone pożeczki/red currants", acid: 24, suggar: 60},
     {id: 12, name: "czarne pożeczki/black currants", acid: 30, suggar: 85},
+    {id: 13, name: "węgierki/purple plums", acid: 10, suggar: 100},
     {id: 13, name: "wiśnie/cherries", acid: 13, suggar: 100},
     {id: 14, name: "winogrona/grapes", acid: 8, suggar: 155}
   ];

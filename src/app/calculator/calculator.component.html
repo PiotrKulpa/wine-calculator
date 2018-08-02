@@ -9,7 +9,7 @@
     <div class="one_third">
       <h6 class="heading">Instrukcja użycia</h6>
       <p>
-        Znając ilość moszczu oraz kwasowość owoców (patrz dział tabelki) , możemy w łatwy sposób obliczyć, ilość potrzebnej wody i cukru
+        Znając ilość moszczu, zawartośc cukru w owocach oraz kwasowość owoców (patrz dział tabelki) , możemy w łatwy sposób obliczyć ilość potrzebnej wody i cukru.
       </p>
     </div>
 
@@ -19,10 +19,12 @@
         <fieldset>
           <label for="fruits">Rodzaj owoców:</label>
           <select (change)="onSelect($event)" ngModel name="fruits" id="fruits" class="btmspace-15" required>>
+            <option value="" disabled selected>Wybierz rodzaj owoców</option>
             <option *ngFor="let item of fruit, let i = index" [value]="i">{{ item.name }}</option>
           </select>
           <label for="alcohol">Pożądana zawartość alkoholu w % :</label>
           <select (change)="onSelectAlk($event)" ngModel name="alcohol" id="alcohol" class="btmspace-15" required>>
+            <option value="" disabled selected>Wybierz moc wina</option>
             <option *ngFor="let item of alcohol, let i = index" [value]="i">{{ item.percent }}</option>
           </select>
           <label for="grape">Ilość moszczu w litrach :</label>
