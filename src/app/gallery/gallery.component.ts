@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 
 
 @Component({
@@ -11,13 +11,15 @@ import { Observable } from 'rxjs';
   styleUrls: ['./gallery.component.css']
 })
 export class GalleryComponent implements OnInit {
-  items: Observable<any[]>;
-  profileUrl: Observable<string | null>;
+  images: Observable<any[]>;
+  imagesCollection: Observable<any[]>;
+  private imagesCollection: AngularFirestoreCollection<Item>;
+  // profileUrl: Observable<string | null>;
+  uploadPercent: Observable<number>;
+  downloadURL: Observable<string>;
   constructor(db: AngularFirestore, private storage: AngularFireStorage) {
-    this.items = db.collection('images').valueChanges();
-    const ref = this.storage.ref('images/');
-    this.profileUrl = ref.getDownloadURL();
-    console.log(this.profileUrl);
+    this.images = db.collection('images').valueChanges();
+    this.imagesCollection = db.collection('images');
   }
 
   ngOnInit() {
@@ -25,12 +27,31 @@ export class GalleryComponent implements OnInit {
 
   addImage(event) {
   const file = event.target.files[0];
-  console.log(file);
   //folder/filename.jpg
    const filePath = `/images/${file.name}`;
-   const ref = this.storage.ref(filePath);
-   const task = ref.put(file);
-  }
-  //TODO jeśli ok(uzyj obietnicy sledzacej postep), to this.profileUrl = ref.getDownloadURL() i zapisujemy dane w bazie
+   const fileRef = this.storage.ref(filePath);
+   const task = this.storage.upload(filePath, file);
 
+
+   // observe percentage changes
+    this.uploadPercent = task.percentageChanges();
+    // get notified when the download URL is available
+    task.snapshotChanges().pipe(
+        finalize(() => {
+          this.downloadURL = fileRef.getDownloadURL().subscribe(url => {
+         const Url = url; // mam url, wyzej mam nazwe pliku, potrzebuję czas
+         let addDate = new Date().getFullYear();
+         let newImage = {date: addDate, name: file.name, src: Url}
+         this.addDoc(newImage);
+     });
+
+        })
+     )
+    .subscribe()
+  }
+
+  addDoc(newImage) {
+    this.imagesCollection.add(newImage)
+
+  }
 }

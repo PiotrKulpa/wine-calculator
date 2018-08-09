@@ -3,7 +3,7 @@
 </p>
 
 <ul>
-    <li *ngFor="let item of items | async">
+    <li *ngFor="let item of images | async">
       <p>{{ item.name }}</p>
       <p>{{ item.src }}</p>
       <p>{{ item.date }}</p>
@@ -13,5 +13,4 @@
 <!-- <button (click)="addImage()">Dodaj zdjęcie</button> -->
 <input type="file" (change)="addImage($event)">
 <p>{{profileUrl | async}}</p>
-
-<img [src]="profileUrl | async" />
+<button (click)="addDoc()" >Dodaj do bazy</button>
