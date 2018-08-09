@@ -39,10 +39,10 @@ export class GalleryComponent implements OnInit {
     task.snapshotChanges().pipe(
         finalize(() => {
           this.downloadURL = fileRef.getDownloadURL().subscribe(url => {
-         const Url = url; // mam url, wyzej mam nazwe pliku, potrzebuję czas
-         let addDate = new Date().getFullYear();
-         let newImage = {date: addDate, name: file.name, src: Url}
-         this.addDoc(newImage);
+          const Url = url; // mam url, wyzej mam nazwe pliku, potrzebuję czas
+          let addDate = new Date().toLocaleString();
+          let newImage = {date: addDate, name: file.name, src: Url}
+          this.addDoc(newImage);
      });
 
         })

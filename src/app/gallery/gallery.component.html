@@ -1,16 +1,22 @@
-<p>
-  gallery works!
-</p>
+<footer id="footer" class="hoc clear">
 
-<ul>
+<input type="file" (change)="addImage($event)">
+
+
+<!-- <ul>
     <li *ngFor="let item of images | async">
       <p>{{ item.name }}</p>
-      <p>{{ item.src }}</p>
+      <img [src]="item.src">
       <p>{{ item.date }}</p>
+<hr>
     </li>
-  </ul>
 
-<!-- <button (click)="addImage()">Dodaj zdjęcie</button> -->
-<input type="file" (change)="addImage($event)">
-<p>{{profileUrl | async}}</p>
-<button (click)="addDoc()" >Dodaj do bazy</button>
+  </ul> -->
+
+  <figure *ngFor="let item of images | async">
+    <img
+    [src]="item.src"
+    alt="A robotic monster over the letters MDN.">
+  </figure>
+
+</footer>
