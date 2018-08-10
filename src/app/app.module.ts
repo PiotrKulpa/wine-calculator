@@ -15,16 +15,22 @@ import { FormatNumberPipe } from './format-number.pipe'
 
 import { AppComponent } from './app.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { CalculatorEnComponent } from './calculator/calculator.en.component';
 import { TablesComponent } from './tables/tables.component';
 import { ContactComponent } from './contact/contact.component';
+import { ContactEnComponent } from './contact/contact.en.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { GalleryComponent } from './gallery/gallery.component';
 
 const appRoutes: Routes = [
   {path: '', component: CalculatorComponent},
+  {path: 'en', component: CalculatorEnComponent},
   {path: 'tabelki', component: TablesComponent},
+  {path: 'tables', component: TablesComponent},
   {path: 'galeria', component: GalleryComponent},
+  {path: 'gallery', component: GalleryComponent},
   {path: 'kontakt', component: ContactComponent},
+  {path: 'contact', component: ContactEnComponent},
   {path: 'not-found', component: NotFoundComponent},
   {path: '**', redirectTo: '/not-found'}
 ]
@@ -33,8 +39,10 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     CalculatorComponent,
+    CalculatorEnComponent,
     TablesComponent,
     ContactComponent,
+    ContactEnComponent,
     NotFoundComponent,
     FormatNumberPipe,
     GalleryComponent

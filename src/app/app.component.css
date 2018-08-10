@@ -544,7 +544,7 @@ table a, #comments a{background-color:inherit;}
 	#header #logo{margin-top:3px;}
 
 	#mainav{}
-	#mainav ul{display:none;}
+	#mainav ul{display:block;}
 	#mainav form{display:block;}
 
 	#breadcrumb{}

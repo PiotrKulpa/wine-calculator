@@ -1,0 +1,52 @@
+<div class="wrapper row4">
+  <footer id="footer" class="hoc clear">
+
+    <div class="one_third first">
+      <h6 class="heading">Calculator</h6>
+      <img src="/assets/wine.svg" alt="wine icon">
+    </div>
+
+    <div class="one_third">
+      <h6 class="heading">Instructions for use</h6>
+      <p>
+        Knowing the amount of must, sugar content in fruit and fruit acidity (see the table section), we can easily calculate the amount of water and sugar needed.
+      </p>
+    </div>
+
+    <div class="one_third">
+      <h6 class="heading">Calculation of the amount of settings</h6>
+      <form (ngSubmit)="calcIngredients(f)" #f="ngForm">
+        <fieldset>
+          <label for="fruits">Type of fruit:</label>
+          <select (change)="onSelect($event)" ngModel name="fruits" id="fruits" class="btmspace-15" required>>
+            <option value="" disabled selected>Choose the type of fruit</option>
+            <option *ngFor="let item of fruit, let i = index" [value]="i">{{ item.name }}</option>
+          </select>
+          <label for="alcohol">Desired alcohol content in%:</label>
+          <select (change)="onSelectAlk($event)" ngModel name="alcohol" id="alcohol" class="btmspace-15" required>>
+            <option value="" disabled selected>Choose the power of wine</option>
+            <option *ngFor="let item of alcohol, let i = index" [value]="i">{{ item.percent }}</option>
+          </select>
+          <label for="grape">Amount of must in liters:</label>
+          <input ngModel name="grape" id="grape" class="btmspace-15" type="number" value="" placeholder="The amount of must in liters" min="1" required>
+          <button [disabled]="!f.valid" type="submit" value="submit">Calculate</button>
+        </fieldset>
+      </form>
+      <hr />
+      <p>
+        Water in liters: {{ addWater | number:'1.0-2':'pl'}}
+      </p>
+      <p>
+        Sugar in kg: {{ addSuggar | number:'1.0-2':'pl' }}
+      </p>
+      <p>
+        Acid in g / l: {{ addAcid | number:'1.0-2':'pl' }}
+      </p>
+      <p>
+        Set in liters: {{ wine | number:'1.0-2':'pl' }}
+      </p>
+
+
+    </div>
+  </footer>
+</div>
