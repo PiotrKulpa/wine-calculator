@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreCollection  } from 'angularfire2/firestore';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
@@ -12,11 +12,11 @@ import { finalize } from 'rxjs/operators';
 })
 export class GalleryComponent implements OnInit {
   images: Observable<any[]>;
-  imagesCollection: Observable<any[]>;
-  private imagesCollection: AngularFirestoreCollection<Item>;
+  //imagesCollection: Observable<any[]>;
+  private imagesCollection: AngularFirestoreCollection;
   // profileUrl: Observable<string | null>;
   uploadPercent: Observable<number>;
-  downloadURL: Observable<string>;
+  //downloadURL: Observable<string>;
   constructor(db: AngularFirestore, private storage: AngularFireStorage) {
     this.images = db.collection('images').valueChanges();
     this.imagesCollection = db.collection('images');
@@ -38,7 +38,7 @@ export class GalleryComponent implements OnInit {
     // get notified when the download URL is available
     task.snapshotChanges().pipe(
         finalize(() => {
-          this.downloadURL = fileRef.getDownloadURL().subscribe(url => {
+          fileRef.getDownloadURL().subscribe(url => {
           const Url = url; // mam url, wyzej mam nazwe pliku, potrzebuję czas
           let addDate = new Date().toLocaleString();
           let newImage = {date: addDate, name: file.name, src: Url}

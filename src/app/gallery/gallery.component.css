@@ -1,0 +1,12 @@
+.add-image {
+  border: 1px solid red !important;
+  border-radius: 25px !important;
+}
+
+figure {
+  display: inline;
+}
+
+.gallery-img {
+  height: 200px !important;
+}

@@ -1,22 +1,14 @@
 <footer id="footer" class="hoc clear">
 
-<input type="file" (change)="addImage($event)">
+  <h1>Dodaj zdjęcie:</h1>
 
-
-<!-- <ul>
-    <li *ngFor="let item of images | async">
-      <p>{{ item.name }}</p>
-      <img [src]="item.src">
-      <p>{{ item.date }}</p>
-<hr>
-    </li>
-
-  </ul> -->
+  <input class="btmspace-15 add-image" type="file" (change)="addImage($event)">
 
   <figure *ngFor="let item of images | async">
     <img
+    class="gallery-img"
     [src]="item.src"
-    alt="A robotic monster over the letters MDN.">
+    [alt]="item.name">
   </figure>
 
 </footer>
