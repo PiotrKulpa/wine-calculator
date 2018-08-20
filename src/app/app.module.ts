@@ -17,18 +17,20 @@ import { AppComponent } from './app.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { CalculatorEnComponent } from './calculator/calculator.en.component';
 import { TablesComponent } from './tables/tables.component';
+import { TablesEnComponent } from './tables/tables.en.component';
 import { ContactComponent } from './contact/contact.component';
 import { ContactEnComponent } from './contact/contact.en.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { GalleryEnComponent } from './gallery/gallery.en.component';
 
 const appRoutes: Routes = [
   {path: '', component: CalculatorComponent},
   {path: 'en', component: CalculatorEnComponent},
   {path: 'tabelki', component: TablesComponent},
-  {path: 'tables', component: TablesComponent},
+  {path: 'tables', component: TablesEnComponent},
   {path: 'galeria', component: GalleryComponent},
-  {path: 'gallery', component: GalleryComponent},
+  {path: 'gallery', component: GalleryEnComponent},
   {path: 'kontakt', component: ContactComponent},
   {path: 'contact', component: ContactEnComponent},
   {path: 'not-found', component: NotFoundComponent},
@@ -41,11 +43,13 @@ const appRoutes: Routes = [
     CalculatorComponent,
     CalculatorEnComponent,
     TablesComponent,
+    TablesEnComponent,
     ContactComponent,
     ContactEnComponent,
     NotFoundComponent,
     FormatNumberPipe,
-    GalleryComponent
+    GalleryComponent,
+    GalleryEnComponent
   ],
   imports: [
     BrowserModule,

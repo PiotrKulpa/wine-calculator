@@ -1,0 +1,14 @@
+<footer id="footer" class="hoc clear">
+
+  <h1>Add photo:</h1>
+
+  <input class="btmspace-15 add-image" type="file" (change)="addImage($event)">
+
+  <figure *ngFor="let item of images | async">
+    <img
+    class="gallery-img"
+    [src]="item.src"
+    [alt]="item.name">
+  </figure>
+
+</footer>
