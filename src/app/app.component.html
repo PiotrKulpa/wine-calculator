@@ -1,8 +1,8 @@
 <div class="hoc clear">
   <header id="header" class="hoc clear">
     <div class="langs">
-      <span (click)="setLang($event)">PL</span> |
-      <span (click)="setLang($event)">EN</span>
+      <span (click)="setLang($event)" routerLink="/" [ngClass]="{'active-link' : isActive}">PL</span> |
+      <span (click)="setLang($event)" routerLink="/en" [ngClass]="{'active-link' : !isActive}">EN</span>
     </div>
     <div id="logo" class="fl_left">
       <h1><a href="/">Kalkulator winiarski</a></h1>
@@ -11,16 +11,17 @@
 
     <nav [ngSwitch]="currentLang" id="mainav" class="fl_right">
       <ul *ngSwitchCase="'PL'" class="clear">
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/tabelki">Tabelki</a></li>
-        <li><a routerLink="/galeria">Galeria</a></li>
-        <li><a routerLink="/kontakt">Kontakt</a></li>
+        <li><a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+          true}">Home</a></li>
+        <li><a routerLink="/tabelki" routerLinkActive="active-link">Tabelki</a></li>
+        <li><a routerLink="/galeria" routerLinkActive="active-link">Galeria</a></li>
+        <li><a routerLink="/kontakt" routerLinkActive="active-link">Kontakt</a></li>
       </ul>
       <ul *ngSwitchCase="'EN'" class="clear">
-        <li><a routerLink="/en">Home</a></li>
-        <li><a routerLink="/tables">Tables</a></li>
-        <li><a routerLink="/gallery">Gallery</a></li>
-        <li><a routerLink="/contact">Contact</a></li>
+        <li><a routerLink="/en" routerLinkActive="active-link">Home</a></li>
+        <li><a routerLink="/tables" routerLinkActive="active-link">Tables</a></li>
+        <li><a routerLink="/gallery" routerLinkActive="active-link">Gallery</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active-link">Contact</a></li>
       </ul>
     </nav>
   </header>

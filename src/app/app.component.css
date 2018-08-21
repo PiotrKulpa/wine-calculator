@@ -472,6 +472,7 @@ input:focus, select:focus, textarea:focus, *:required:focus{border-color:#D64E3F
 
 
 /* Navigation */
+.active-link {color:#D64E3F !important;}
 #mainav li a{color:inherit;}
 #mainav .active a, #mainav a:hover, #mainav li:hover > a{color:#D64E3F; background-color:inherit;}
 #mainav li li a, #mainav .active li a{color:#FFFFFF; background-color:rgba(0,0,0,.6); border-color:rgba(0,0,0,.6);}

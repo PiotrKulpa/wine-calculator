@@ -31,7 +31,6 @@ export class CalculatorComponent implements OnInit {
   ngOnInit() {
     this.fruit = this.fruitsService.fruits;
     this.alcohol = this.fruitsService.alcohol;
-    console.log(this.alcohol)
   }
 
 
@@ -39,13 +38,11 @@ export class CalculatorComponent implements OnInit {
     this.id = e.target.value;
     this.acid = this.fruit[this.id].acid;
     this.suggar = this.fruit[this.id].suggar;
-    console.log(this.acid, this.suggar)
   }
 
   onSelectAlk(e) {
     this.idAlk = e.target.value;
     this.suggarInFruit = this.alcohol[this.idAlk].suggar;
-    console.log(this.suggarInFruit);
   }
 
   calcIngredients(form: NgForm) {
@@ -53,38 +50,28 @@ export class CalculatorComponent implements OnInit {
     if (this.acid > 8) {
       this.addAcid = 0;
       this.wine = (this.acid / 8) * form.value.grape;
-      console.log(`cały nastaw to: ${this.wine}l`);
 
       this.addSuggar = this.suggarInFruit * this.wine - (form.value.grape * this.suggar);
       this.addSuggar = this.addSuggar / 1000;
-      console.log(`potrzebny cukier to: ${this.addSuggar}g`);
 
       this.calculatedWater = this.wine - form.value.grape;
-      console.log(this.calculatedWater)
       this.addWater = this.calculatedWater - this.addSuggar / 1.6;
-      console.log(`objętośc potrzebnej wody to: ${this.addWater}l`);
     } else if (this.acid === 8) {
       this.addAcid = 0;
       this.wine = (this.acid / 8) * form.value.grape;
-      console.log(`cały nastaw to: ${this.wine}l`);
 
       this.addSuggar = this.suggarInFruit * this.wine - (form.value.grape * this.suggar);
       this.addSuggar = this.addSuggar / 1000;
-      console.log(`potrzebny cukier to: ${this.addSuggar}g`);
 
       this.addWater = 0;
-      console.log(`objętośc potrzebnej wody to: ${this.addWater}l`);
     } else {
       this.addAcid = 8 - this.acid;
       this.wine = form.value.grape;
-      console.log(`cały nastaw to: ${this.wine}l`);
 
       this.addSuggar = this.suggarInFruit * this.wine - (form.value.grape * this.suggar);
       this.addSuggar = this.addSuggar / 1000;
-      console.log(`potrzebny cukier to: ${this.addSuggar}g`);
 
       this.addWater = 0;
-      console.log(`objętośc potrzebnej wody to: ${this.addWater}l`);
     }
   }
 
