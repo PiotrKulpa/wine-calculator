@@ -5,10 +5,22 @@
   <input class="btmspace-15 add-image" type="file" (change)="addImage($event)">
 
   <figure *ngFor="let item of images | async">
-    <img
+    <!-- <img
     class="gallery-img"
     [src]="item.src"
-    [alt]="item.name">
+    [alt]="item.name"> -->
+
+    <a [href]="item.src"
+      data-lightbox="image"
+      data-title="{{item.name}}">
+      <img class="gallery-img"
+        [src]="item.src"
+        [alt]="item.name"
+        >
+
+    </a>
   </figure>
+
+
 
 </footer>

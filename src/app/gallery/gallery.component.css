@@ -8,5 +8,7 @@ figure {
 }
 
 .gallery-img {
-  height: 200px !important;
+  width: 326px;
+  height: 326px !important;
+  object-fit: cover;
 }
