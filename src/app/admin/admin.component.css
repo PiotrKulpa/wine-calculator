@@ -1,0 +1,9 @@
+button:disabled  {
+    cursor: not-allowed !important;
+}
+
+select {
+  width:100%;
+  padding:5px;
+  border:1px solid;
+}
